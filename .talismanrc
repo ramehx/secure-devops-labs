@@ -1,0 +1,10 @@
+fileignoreconfig:
+- filename: appsettings.json
+  checksum: 2ad390671540428c45572396b5660147beaa447c2b0df2a74f786a84de3d7eee
+- filename: azure_sp.json
+  checksum: 3f817f5932a77fe39de2faa448f4f299b1edfb992371134c5c1b45d8133f2aab
+- filename: gh-token
+  checksum: ee8a654253b4822c841c55a5d4f6286d087995334ce5ba0bcabfce6fed42cfdd
+- filename: secret.TXT
+  checksum: 8a8c395be9b4cbb0e18f0b7629aa3edfd589f61f170de68876b24cad91145b84
+version: "1.0"
