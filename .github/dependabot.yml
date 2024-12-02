@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directories:
+      - "/src/TodoAPI"
+      - "/src/TodoAPI.Tests"
+      - "/src/TodoWebapp"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 50
