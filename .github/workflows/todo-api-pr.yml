@@ -1,11 +1,12 @@
-name: TodoWebApp PR
+name: TodoAPI PR
 
 on:
   pull_request:
     branches: [ main ]
     paths:
-      - 'src/TodoWebapp/**'
-      - '.github/workflows/todo-webapp-pr.yml'
+      - 'src/TodoAPI/**'
+      - 'src/TodoAPI.Tests/**'
+      - '.github/workflows/todo-api-pr.yml'
 
 jobs:
   build:
@@ -24,11 +25,24 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: |
-        dotnet restore src/TodoWebapp/TodoWebapp.csproj
+        dotnet restore src/TodoAPI/TodoAPI.csproj
+        dotnet restore src/TodoAPI.Tests/TodoAPI.Tests.csproj
     
     - name: Build
       run: |
-        dotnet build --no-restore src/TodoWebapp/TodoWebapp.csproj
+        dotnet build --no-restore src/TodoAPI/TodoAPI.csproj
+        dotnet build --no-restore src/TodoAPI.Tests/TodoAPI.Tests.csproj
+    
+    - name: Test
+      run: dotnet test --no-build src/TodoAPI.Tests/TodoAPI.Tests.csproj --verbosity normal --logger "trx;LogFileName=test-results.trx"
+      
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: Todo API Tests
+        path: '**/TestResults/*.trx'
+        reporter: dotnet-trx
 
   sca:
     runs-on: ubuntu-latest
@@ -48,11 +62,12 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: |
-        dotnet restore src/TodoWebapp/TodoWebapp.csproj
+        dotnet restore src/TodoAPI/TodoAPI.csproj
+        dotnet restore src/TodoAPI.Tests/TodoAPI.Tests.csproj
 
     - name: Run Snyk to check for vulnerabilities
       uses: snyk/actions/dotnet@master
-      continue-on-error: true # To make sure that SARIF upload gets called
+      continue-on-error: true
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
@@ -62,13 +77,13 @@ jobs:
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: snyk.sarif
-
+    
     - name: Publish security report to artifact
       uses: actions/upload-artifact@v4
       with:
         name: snyk-report
         path: snyk.sarif
-
+    
   security-analysis:
     name: Security Analysis
     runs-on: ubuntu-latest
@@ -101,10 +116,10 @@ jobs:
       - name: Set up SonarCloud
         uses: sonarsource/sonarcloud-github-action@v3.1.0
         with:
-          projectBaseDir: src/TodoWebapp
+          projectBaseDir: src/TodoAPI
           args: >
-            -Dsonar.organization=3e7a80baddce5438708879ff5e4510a04abfd68f
-            -Dsonar.projectKey=ramehx_secure-devops-labs
+            -Dsonar.organization=ramehx_secure-devops-labs
+            -Dsonar.projectKey=3e7a80baddce5438708879ff5e4510a04abfd68f
             -Dsonar.verbose=true
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
