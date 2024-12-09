@@ -118,8 +118,8 @@ jobs:
         with:
           projectBaseDir: src/TodoAPI
           args: >
-            -Dsonar.organization=ramehx_secure-devops-labs
-            -Dsonar.projectKey=3e7a80baddce5438708879ff5e4510a04abfd68f
+            -Dsonar.organization=ramehx
+            -Dsonar.projectKey=ramehx_secure-devops-labs
             -Dsonar.verbose=true
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

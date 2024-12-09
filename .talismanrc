@@ -1,4 +1,8 @@
 fileignoreconfig:
+- filename: .github/workflows/todo-api-pr.yml
+  checksum: ec8e9c3a0dca6dc3dafe2bd8eb1dc93e25940fc51afd2d1c95600f9374321d59
+- filename: .github/workflows/todo-webapp-pr.yml
+  checksum: 0652c111a55f57a5a664e50ebcd2a888cbd2cee9846e063fe7b0b3200d0e7ed9
 - filename: lab1
   checksum: dbbd7b79b16e6c8727f1e40885a498dd0c5c42aab5c7acd468fc2d69a4675f3c
 - filename: lab4/.github/workflows/.github/todo-api-pr.yml
