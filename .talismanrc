@@ -1,4 +1,8 @@
 fileignoreconfig:
+- filename: .github/workflows/todo-api-pr.yml
+  checksum: 25c31de24e62685804346a4188a2c88241a6e7e4ef262fbd2e119aa6ddf86cfd
+- filename: .github/workflows/todo-webapp-pr.yml
+  checksum: 0652c111a55f57a5a664e50ebcd2a888cbd2cee9846e063fe7b0b3200d0e7ed9
 - filename: appsettings.json
   checksum: 2ad390671540428c45572396b5660147beaa447c2b0df2a74f786a84de3d7eee
 - filename: azure_sp.json
