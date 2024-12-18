@@ -1,4 +1,8 @@
 fileignoreconfig:
+- filename: .github/workflows/todo-api-pr.yml
+  checksum: 25c31de24e62685804346a4188a2c88241a6e7e4ef262fbd2e119aa6ddf86cfd
+- filename: .github/workflows/todo-webapp-pr.yml
+  checksum: 0652c111a55f57a5a664e50ebcd2a888cbd2cee9846e063fe7b0b3200d0e7ed9
 - filename: appsettings.json
   checksum: 2ad390671540428c45572396b5660147beaa447c2b0df2a74f786a84de3d7eee
 - filename: azure_sp.json
@@ -119,4 +123,11 @@ fileignoreconfig:
   checksum: 18af03326d61281491ce1542459512b5b38a24dc38e7378c387d91b02dc9088b
 - filename: todo-api-1/src/TodoWebapp/wwwroot/lib/jquery/dist/jquery.min.map
   checksum: 6a6c8b4da3fbffe40c6595556d3ebf9ff12d9fc4d89c4313317e7058654a3a8e
+  checksum: ec8e9c3a0dca6dc3dafe2bd8eb1dc93e25940fc51afd2d1c95600f9374321d59
+- filename: .github/workflows/todo-webapp-pr.yml
+  checksum: 0652c111a55f57a5a664e50ebcd2a888cbd2cee9846e063fe7b0b3200d0e7ed9
+- filename: lab4/.github/workflows/.github/todo-api-pr.yml
+  checksum: e2c29e83b52d898058309ba96e64169257dc8ff37a38e37211f90469327752d7
+- filename: lab4/.github/workflows/.github/todo-webapp-pr.yml.yaml
+  checksum: 3eb64f10f64e739fbf0ca30b23f8aca37047b1140244f1966f519ac8503615d4
 version: "1.0"
